@@ -1,7 +1,9 @@
 # installing optional-chaining into your create-react-app project
 
 `$ create-react-app cool-project`
+
 `$ cd cool-project`
+
 `$ yarn add react-app-rewired customize-cra @babel/plugin-proposal-optional-chaining`
 
 
@@ -29,6 +31,7 @@ now
 ```
 
 `$ touch .babelrc`
+
 `$ touch config-overrides.js`
 
 <sub>./.babelrc</sub>
@@ -56,8 +59,11 @@ then you're all ready!
 # running this project on your machine
 
 `$ git clone https://github.com/nikfrank/optional-chaining`
+
 `$ cd optional-chaining`
+
 `$ yarn`
+
 `$ yarn start`
 
 
