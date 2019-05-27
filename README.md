@@ -58,6 +58,12 @@ then you're all ready!
 
 # running this project on your machine
 
+this repo contains a demo app using `?.` optional chaining in routine use cases
+
+if you are required to build a card-matching-guessing game for your homework, I recommend doing it yourself and not copying this repo:
+
+if you're doing a guessing game for homework, it might be a bit suspicious if you hand in a project that uses SCSS and a TC 39 stage 1 proposal babel plugin.
+
 `$ git clone https://github.com/nikfrank/optional-chaining`
 
 `$ cd optional-chaining`
