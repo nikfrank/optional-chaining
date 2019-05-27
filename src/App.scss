@@ -1,3 +1,14 @@
+body {
+  background-color: #0c6c24;
+  padding: 20px;
+}
+
+.App {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
 .card {
   margin: 8px;
   width: 131px;
@@ -14,14 +25,15 @@
   
   .cardfront {
     position: absolute;
-    height: calc( 100% - 2px );
-    width: calc( 100% - 1px );
+    height: calc( 100% - 12px );
+    width: calc( 100% - 7px );
     top: 0;
     left: 0;
     border-radius: 20px;
+    border: 4px solid black;
     z-index: 100;
 
-    transition: z-index 1s;
+    transition: z-index 1s, border-color 1s;
 
     display: flex;
     justify-content: center;
@@ -39,5 +51,9 @@
     .cardfront {
       z-index: 200;
     }
-  }  
+  }
+
+  &.selected .cardfront {
+    border-color: gold;
+  }
 }

@@ -10,9 +10,9 @@ import butch from './images/butch.png';
 
 const imgIndex = { mia, vincent, jules, marcellus, butch };
 
-export default ({ onClick, index, open, name, color })=> (
+export default ({ onClick, index, open, name, color, selected })=> (
   <div onClick={()=> onClick?.(index)}
-       className={'card ' + (open ? 'open' : 'closed')}>
+       className={'card ' + (open ? 'open ' : '') + (selected ? 'selected' : '')}>
     <svg viewBox='0 0 131 200' style={{ width: '100%' }}>
       <CardBack xOffset={0} yOffset={0}
                 cardWidth={131} cardHeight={200}/>
