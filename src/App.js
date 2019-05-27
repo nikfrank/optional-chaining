@@ -1,41 +1,68 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import './App.scss';
 
-import SvgComponent from './SvgComponent';
+import Card from './Card';
 
-const thisprops = {
-  user: {
-    location: {
-      
-    }
+const characters = [
+  'mia', 'vincent', 'jules', 'marcellus', 'butch',
+];
+
+class App extends Component{
+
+  state = {
+    selectedIndex: null,
+    
+    cards: [
+      'red', 'green', 'blue',
+      'red', 'green', 'blue',
+    ].flatMap(color=>
+      characters.slice(0,5)
+                .map(c => ({ name: c, open: false, color, done: false }))
+    ),
   }
-};
 
-function App() {
+  selectCard = index => {
 
-  //                       selected: ((this.state.rxs[rxi]||{}).drugs[di]||{}).selected || false,
-  console.log( thisprops.user?.location.whatever?.() );
-  
-  return (
-    <div className="App">
-      <SvgComponent onClick={()=> console.log('blah')}/>
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const prev = this.state.cards[this.state.selectedIndex];
+    const current = this.state.cards[index];
+
+    if( prev?.name === current.name && prev?.color === current.color ){
+      // match
+      console.log('match');
+    }
+      
+    this.setState(state => ({
+      cards: state.cards.map((card, ci)=> (
+        ci === index ? ({ ...card, open: !card.open }) : card
+      )),
+    }) )
+  }
+
+  render(){
+    return (
+      <div className="App">
+        <div style={{
+          height: 200,
+          display: 'flex',
+          flexDirection: 'row',
+          flexWrap: 'wrap',
+          padding: 5,
+        }}>
+          {this.state.cards.map((card, ci)=>(
+            <Card key={ci} index={ci}
+                  {...card}
+                  onClick={card.done ? null : this.selectCard} />
+          ))}
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;
+
+
+
+
+
+//   open: ((this.state.rxs[rxi]||{}).drugs[di]||{}).open || false,
