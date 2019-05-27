@@ -3,9 +3,7 @@ import './App.scss';
 
 import Card from './Card';
 
-const characters = [
-  'mia', 'vincent', 'jules', 'marcellus', 'butch',
-];
+const characters = ['mia', 'vincent', 'jules', 'marcellus', 'butch'];
 
 class App extends Component{
 
